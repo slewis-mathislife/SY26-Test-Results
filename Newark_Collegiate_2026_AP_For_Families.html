@@ -1,0 +1,388 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>To Our Families | Newark Collegiate 2026 AP Results</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A5E;
+    --cerulean: #4FBCEC;
+    --cream: #FDF9F0;
+    --ink: #1B2A5E;
+    --muted: #6B7A99;
+    --gold: #DD9933;
+    --soft-navy: #E8ECF5;
+    --soft-blue: #E6F5FC;
+    --soft-cream: #FBF4E4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: Calibri, "Segoe UI", sans-serif;
+    background: #E8ECF5;
+    color: var(--ink);
+    padding: 24px;
+  }
+  .page {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--cream);
+    padding: 40px 44px 36px;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(27, 42, 94, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--cerulean) 100%);
+  }
+  header {
+    text-align: center;
+    padding-bottom: 22px;
+    margin-bottom: 24px;
+    border-bottom: 2px solid var(--soft-navy);
+  }
+  .brand-mark {
+    font-size: 12px;
+    letter-spacing: 4px;
+    color: var(--cerulean);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 4px;
+  }
+  .brand-sub {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--gold);
+    margin-top: 4px;
+  }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.2;
+    letter-spacing: -0.3px;
+    text-align: center;
+  }
+  .lede {
+    font-size: 16px;
+    line-height: 1.65;
+    color: var(--ink);
+    margin: 18px 0 24px;
+    text-align: center;
+    max-width: 640px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .primer {
+    background: var(--soft-blue);
+    border-radius: 12px;
+    padding: 16px 22px;
+    margin-bottom: 24px;
+    display: flex;
+    gap: 18px;
+    align-items: center;
+  }
+  .primer-icon {
+    font-size: 32px;
+    line-height: 1;
+    color: var(--navy);
+    font-weight: 700;
+    font-family: 'Caveat', cursive;
+    min-width: 42px;
+    text-align: center;
+  }
+  .primer-text {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+  }
+  .primer-text strong { color: var(--navy); }
+
+  .big-moment {
+    background: var(--navy);
+    color: white;
+    border-radius: 14px;
+    padding: 26px 30px;
+    text-align: center;
+    margin-bottom: 24px;
+    position: relative;
+    overflow: hidden;
+  }
+  .big-moment::after {
+    content: "";
+    position: absolute;
+    right: -30px; bottom: -30px;
+    width: 140px; height: 140px;
+    background: var(--cerulean);
+    opacity: 0.2;
+    border-radius: 50%;
+  }
+  .moment-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    font-weight: 700;
+    position: relative;
+    z-index: 2;
+  }
+  .moment-big {
+    font-size: 72px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 8px 0;
+    letter-spacing: -2px;
+    position: relative;
+    z-index: 2;
+  }
+  .moment-sub {
+    font-size: 15px;
+    line-height: 1.5;
+    opacity: 0.9;
+    position: relative;
+    z-index: 2;
+    max-width: 520px;
+    margin: 0 auto;
+  }
+
+  .section-label {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 6px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--soft-navy);
+  }
+
+  .cheers {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 24px;
+  }
+  .cheer {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 20px;
+    border-left: 5px solid var(--cerulean);
+    box-shadow: 0 2px 8px rgba(27, 42, 94, 0.05);
+  }
+  .cheer.gold { border-left-color: var(--gold); background: var(--soft-cream); }
+  .cheer-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .cheer-body {
+    font-size: 14px;
+    line-height: 1.5;
+    color: var(--ink);
+  }
+  .cheer-body strong { color: var(--navy); }
+
+  .letter {
+    background: white;
+    border-radius: 14px;
+    padding: 24px 28px;
+    border: 1px solid var(--soft-navy);
+    margin-bottom: 20px;
+    position: relative;
+  }
+  .letter-heading {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--navy);
+    font-weight: 700;
+    margin-bottom: 12px;
+  }
+  .letter-body {
+    font-size: 15px;
+    line-height: 1.7;
+    color: var(--ink);
+  }
+  .letter-body p { margin-bottom: 12px; }
+  .letter-body p:last-child { margin-bottom: 0; }
+  .signature {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--navy);
+    margin-top: 8px;
+  }
+  .signature-role {
+    font-size: 12px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 2px;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 10px;
+    border-top: 1px solid var(--soft-navy);
+  }
+  .footer-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .footer-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .series-nav {
+    margin: 22px 0 6px;
+    padding: 14px 18px;
+    background: var(--soft-navy);
+    border-radius: 12px;
+  }
+  .series-nav-header {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .series-nav-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .series-nav-items a {
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .series-nav-items a:hover {
+    background: var(--cerulean);
+    color: white;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand-mark">Newark Collegiate</div>
+    <div class="brand-name">A Note to Our Families</div>
+    <div class="brand-sub">on the 2026 AP Exam Results</div>
+  </header>
+
+  <h1>Something wonderful happened this year.</h1>
+  <p class="lede">
+    Our students showed up for the College Board Advanced Placement exams, and the whole building leaned in with them. We want you to see what your children built together.
+  </p>
+
+  <div class="primer">
+    <div class="primer-icon">?</div>
+    <div class="primer-text">
+      <strong>What is an AP score?</strong> AP exams are scored 1 to 5. A score of <strong>3 or higher</strong> is considered qualifying and can earn students college credit at many universities. It signals that a student has done college-level work while still in high school.
+    </div>
+  </div>
+
+  <div class="big-moment">
+    <div class="moment-label">2026 Newark Collegiate</div>
+    <div class="moment-big">53%</div>
+    <div class="moment-sub">of our AP students earned a qualifying score of 3 or higher on at least one exam. Five years ago, that number was just 7 percent.</div>
+  </div>
+
+  <div class="section-label">Reasons to celebrate</div>
+  <div class="cheers">
+    <div class="cheer gold">
+      <div class="cheer-title">Perfect passing in two subjects</div>
+      <div class="cheer-body">
+        Every single student who sat for <strong>AP Seminar</strong> and <strong>AP African American Studies</strong> earned a qualifying score. One hundred percent.
+      </div>
+    </div>
+    <div class="cheer gold">
+      <div class="cheer-title">Nine perfect fives</div>
+      <div class="cheer-body">
+        Nine Collegiate students earned the top score of 5 across Seminar, English, Calculus, Physics, and Precalculus.
+      </div>
+    </div>
+    <div class="cheer">
+      <div class="cheer-title">A steady climb, year over year</div>
+      <div class="cheer-body">
+        Our schoolwide AP pass rate has grown every single year since 2022. From <strong>7% to 53%</strong>.
+      </div>
+    </div>
+    <div class="cheer">
+      <div class="cheer-title">Sophomores testing at senior level</div>
+      <div class="cheer-body">
+        Our tenth graders posted the same mean AP score as our twelfth graders. Your younger students are already ready.
+      </div>
+    </div>
+  </div>
+
+  <div class="letter">
+    <div class="letter-heading">From the School Leader's desk</div>
+    <div class="letter-body">
+      <p>To the families of Newark Collegiate,</p>
+      <p>
+        These numbers are not the whole story. The story is your child, waking up early on a May morning to take a college-level exam. The story is the teacher who stayed late to review one more practice question. The story is you, believing your child could do it before anyone else in the room agreed.
+      </p>
+      <p>
+        We are proud, and we are not finished. Next year is Newark Collegiate's twentieth year, and we intend to make it the strongest yet. Thank you for trusting us with your children. We keep climbing.
+      </p>
+      <div class="signature">With gratitude,</div>
+      <div class="signature">Sharmaine Lewis</div>
+      <div class="signature-role">School Leader, Newark Collegiate</div>
+    </div>
+  </div>
+
+  <div class="series-nav">
+    <div class="series-nav-header">In this series</div>
+    <div class="series-nav-items">
+      <a href="index.html">Full 2026 report</a>
+      <a href="Newark_Collegiate_2026_AP_Class_of_2026.html">Class of 2026</a>
+      <a href="Newark_Collegiate_2026_AP_Social.html">Social graphic</a>
+      <a href="Newark_Collegiate_2026_AP_State_Comparison.html">vs. NJ + nation</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-tag">Rooted in Excellence. Built on Belonging.</div>
+    <div class="footer-sub">Newark Collegiate &middot; SY27</div>
+  </footer>
+
+</div>
+</body>
+</html>

@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Newark Collegiate AP 2026 | Social</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A5E;
+    --cerulean: #4FBCEC;
+    --cream: #FDF9F0;
+    --gold: #DD9933;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: Calibri, "Segoe UI", sans-serif;
+    background: #E8ECF5;
+    padding: 24px;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    gap: 20px;
+  }
+
+  .square {
+    width: 720px;
+    height: 720px;
+    background: var(--navy);
+    color: white;
+    border-radius: 20px;
+    padding: 60px 56px;
+    position: relative;
+    overflow: hidden;
+    box-shadow: 0 20px 60px rgba(27, 42, 94, 0.25);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+
+  /* Decorative gold arc */
+  .square::before {
+    content: "";
+    position: absolute;
+    top: -80px; right: -80px;
+    width: 320px; height: 320px;
+    background: var(--gold);
+    opacity: 0.18;
+    border-radius: 50%;
+  }
+  .square::after {
+    content: "";
+    position: absolute;
+    bottom: -140px; left: -140px;
+    width: 380px; height: 380px;
+    background: var(--cerulean);
+    opacity: 0.15;
+    border-radius: 50%;
+  }
+
+  /* Top row: brand */
+  .top {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .brand {
+    font-size: 13px;
+    letter-spacing: 4px;
+    color: var(--cerulean);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .year {
+    font-size: 13px;
+    letter-spacing: 3px;
+    color: var(--gold);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+
+  /* Hero content */
+  .middle {
+    position: relative;
+    z-index: 2;
+    text-align: center;
+  }
+  .kicker {
+    font-family: 'Caveat', cursive;
+    font-size: 42px;
+    color: var(--cerulean);
+    font-weight: 500;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .mega {
+    font-size: 220px;
+    font-weight: 700;
+    line-height: 0.95;
+    letter-spacing: -8px;
+    color: white;
+    text-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  }
+  .mega-caption {
+    font-size: 22px;
+    font-weight: 500;
+    line-height: 1.35;
+    margin-top: 12px;
+    max-width: 500px;
+    margin-left: auto;
+    margin-right: auto;
+    opacity: 0.95;
+  }
+  .mega-caption strong { color: var(--gold); font-weight: 700; }
+
+  /* Bottom row: five-year story */
+  .bottom {
+    position: relative;
+    z-index: 2;
+  }
+  .growth {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding-bottom: 16px;
+    border-bottom: 1px solid rgba(255,255,255,0.2);
+    margin-bottom: 14px;
+  }
+  .growth-item {
+    text-align: center;
+    flex: 1;
+  }
+  .growth-year {
+    font-size: 12px;
+    letter-spacing: 1.5px;
+    color: rgba(255,255,255,0.6);
+    font-weight: 500;
+    margin-bottom: 6px;
+  }
+  .growth-pct {
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+  }
+  .growth-item.current .growth-year { color: var(--gold); }
+  .growth-item.current .growth-pct { color: var(--gold); font-size: 24px; }
+
+  .tag {
+    text-align: center;
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--cream);
+    font-weight: 500;
+  }
+
+  /* Caption card */
+  .caption-card {
+    max-width: 720px;
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    box-shadow: 0 8px 24px rgba(27, 42, 94, 0.1);
+  }
+  .caption-title {
+    font-size: 13px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #6B7A99;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .caption-body {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--navy);
+    white-space: pre-wrap;
+  }
+  .caption-tags {
+    font-size: 13px;
+    color: var(--cerulean);
+    margin-top: 8px;
+    font-weight: 500;
+  }
+
+  .series-nav {
+    max-width: 720px;
+    width: 100%;
+    padding: 14px 18px;
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(27, 42, 94, 0.08);
+  }
+  .series-nav-header {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: #6B7A99;
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .series-nav-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .series-nav-items a {
+    padding: 6px 14px;
+    background: #E8ECF5;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .series-nav-items a:hover {
+    background: var(--navy);
+    color: white;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .square { box-shadow: none; page-break-after: always; }
+    .caption-card { box-shadow: none; border: 1px solid #ccc; }
+  }
+</style>
+</head>
+<body>
+
+<div class="square">
+  <div class="top">
+    <div class="brand">Newark Collegiate</div>
+    <div class="year">AP 2026</div>
+  </div>
+
+  <div class="middle">
+    <div class="kicker">we crossed the halfway mark.</div>
+    <div class="mega">53%</div>
+    <div class="mega-caption">of our AP students earned a qualifying score of 3+. <strong>Up from 7% in 2022.</strong></div>
+  </div>
+
+  <div class="bottom">
+    <div class="growth">
+      <div class="growth-item">
+        <div class="growth-year">2022</div>
+        <div class="growth-pct">7%</div>
+      </div>
+      <div class="growth-item">
+        <div class="growth-year">2023</div>
+        <div class="growth-pct">14%</div>
+      </div>
+      <div class="growth-item">
+        <div class="growth-year">2024</div>
+        <div class="growth-pct">32%</div>
+      </div>
+      <div class="growth-item">
+        <div class="growth-year">2025</div>
+        <div class="growth-pct">41%</div>
+      </div>
+      <div class="growth-item current">
+        <div class="growth-year">2026</div>
+        <div class="growth-pct">53%</div>
+      </div>
+    </div>
+    <div class="tag">Rooted in Excellence. Built on Belonging.</div>
+  </div>
+</div>
+
+<div class="caption-card">
+  <div class="caption-title">Suggested caption</div>
+  <div class="caption-body">Five years up. Never once down.
+
+This spring, 53% of Newark Collegiate AP students earned a qualifying score of 3 or higher on at least one Advanced Placement exam. In 2022, that number was 7 percent.
+
+Congratulations to the students who showed up on those May mornings, to the teachers who prepared them, and to the families who believed first. We are rooted in excellence, and we are just getting started.</div>
+  <div class="caption-tags">#NewarkCollegiate #APExcellence #RootedInExcellence #KIPPNewark</div>
+</div>
+
+<div class="series-nav">
+  <div class="series-nav-header">In this series</div>
+  <div class="series-nav-items">
+    <a href="index.html">Full 2026 report</a>
+    <a href="Newark_Collegiate_2026_AP_Class_of_2026.html">Class of 2026</a>
+    <a href="Newark_Collegiate_2026_AP_For_Families.html">For families</a>
+    <a href="Newark_Collegiate_2026_AP_State_Comparison.html">vs. NJ + nation</a>
+  </div>
+</div>
+
+</body>
+</html>

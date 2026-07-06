@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Newark Collegiate | 2026 AP Results at a Glance</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A5E;
+    --cerulean: #4FBCEC;
+    --cream: #FDF9F0;
+    --ink: #1B2A5E;
+    --muted: #6B7A99;
+    --gold: #DD9933;
+    --soft-navy: #E8ECF5;
+    --soft-blue: #E6F5FC;
+    --soft-cream: #FBF4E4;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: Calibri, "Segoe UI", sans-serif;
+    background: #E8ECF5;
+    color: var(--ink);
+    padding: 24px;
+  }
+  .page {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--cream);
+    padding: 40px 44px 36px;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(27, 42, 94, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--cerulean) 100%);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--soft-navy);
+    padding-bottom: 18px;
+    margin-bottom: 24px;
+  }
+  .brand {
+    display: flex;
+    flex-direction: column;
+  }
+  .brand-mark {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--cerulean);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 4px;
+  }
+  .doc-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .doc-meta strong { color: var(--navy); font-size: 13px; }
+
+  h1 {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+  .subhead {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--cerulean);
+    margin-top: 4px;
+    font-weight: 700;
+  }
+
+  .hero {
+    display: grid;
+    grid-template-columns: 1.1fr 1fr;
+    gap: 24px;
+    margin: 22px 0 28px;
+    align-items: stretch;
+  }
+  .hero-number {
+    background: var(--navy);
+    color: white;
+    padding: 24px 28px;
+    border-radius: 14px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero-number::after {
+    content: "";
+    position: absolute;
+    right: -30px; bottom: -30px;
+    width: 130px; height: 130px;
+    background: var(--cerulean);
+    opacity: 0.18;
+    border-radius: 50%;
+  }
+  .hero-label {
+    font-size: 12px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    font-weight: 700;
+  }
+  .hero-big {
+    font-size: 78px;
+    font-weight: 700;
+    line-height: 1;
+    margin: 6px 0 4px;
+    letter-spacing: -2px;
+  }
+  .hero-subtext {
+    font-size: 15px;
+    color: white;
+    opacity: 0.85;
+    line-height: 1.4;
+    position: relative;
+    z-index: 2;
+  }
+  .hero-caveat {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--gold);
+    margin-top: 10px;
+    position: relative;
+    z-index: 2;
+  }
+
+  .chart-card {
+    background: white;
+    border-radius: 14px;
+    padding: 20px 22px 18px;
+    border: 1px solid var(--soft-navy);
+  }
+  .chart-title {
+    font-size: 12px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 14px;
+  }
+  .bars {
+    display: flex;
+    align-items: flex-end;
+    gap: 10px;
+    height: 150px;
+  }
+  .bar-col {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 6px;
+    height: 100%;
+    justify-content: flex-end;
+  }
+  .bar-pct {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+  }
+  .bar {
+    width: 100%;
+    background: linear-gradient(180deg, var(--cerulean) 0%, var(--navy) 100%);
+    border-radius: 6px 6px 0 0;
+  }
+  .bar-year {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+    margin-top: 2px;
+  }
+
+  .section-label {
+    font-family: 'Caveat', cursive;
+    font-size: 28px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 8px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--soft-navy);
+  }
+
+  .standouts {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .standout {
+    background: white;
+    border-radius: 12px;
+    padding: 16px 14px;
+    text-align: center;
+    border-top: 4px solid var(--cerulean);
+    box-shadow: 0 2px 8px rgba(27, 42, 94, 0.05);
+  }
+  .standout.gold { border-top-color: var(--gold); }
+  .standout-pct {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .standout-subj {
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 700;
+    margin-top: 6px;
+    line-height: 1.25;
+  }
+  .standout-note {
+    font-size: 11px;
+    color: var(--muted);
+    margin-top: 4px;
+  }
+
+  .stories {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 14px;
+    margin-bottom: 26px;
+  }
+  .story {
+    background: var(--soft-blue);
+    border-radius: 12px;
+    padding: 16px 18px;
+    border-left: 5px solid var(--cerulean);
+  }
+  .story-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+  }
+  .story-body {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-top: 6px;
+  }
+  .story-body strong { color: var(--navy); }
+
+  .honors-intro {
+    font-size: 14px;
+    line-height: 1.55;
+    color: var(--ink);
+    background: var(--soft-cream, #FBF4E4);
+    border-radius: 12px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    border-left: 4px solid var(--gold);
+  }
+  .honors-intro strong { color: var(--navy); }
+
+  .honors-strip {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .honor-card {
+    background: white;
+    border: 1px solid var(--soft-navy);
+    border-radius: 12px;
+    padding: 14px 16px;
+    box-shadow: 0 2px 8px rgba(27, 42, 94, 0.05);
+    position: relative;
+  }
+  .honor-card.double {
+    background: linear-gradient(180deg, #FCF3E1 0%, white 100%);
+    border-color: var(--gold);
+  }
+  .honor-badge {
+    font-size: 10px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .honor-name {
+    font-size: 17px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    margin-bottom: 2px;
+  }
+  .honor-class {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 0.3px;
+    margin-bottom: 8px;
+  }
+  .honor-award {
+    font-size: 12px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.35;
+    border-top: 1px dashed var(--soft-navy);
+    padding-top: 8px;
+  }
+
+  .footer-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+    background: var(--navy);
+    color: white;
+    border-radius: 12px;
+    padding: 18px 22px;
+    margin-bottom: 18px;
+  }
+
+  .grade-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 24px;
+  }
+  .grade-card {
+    background: white;
+    border: 1px solid var(--soft-navy);
+    border-radius: 12px;
+    padding: 16px 18px;
+    box-shadow: 0 2px 8px rgba(27, 42, 94, 0.05);
+  }
+  .grade-card.featured {
+    background: var(--soft-blue);
+    border: 1px solid var(--cerulean);
+  }
+  .grade-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--cerulean);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .grade-card.featured .grade-tag { color: var(--navy); }
+  .grade-headline {
+    display: flex;
+    align-items: baseline;
+    gap: 6px;
+    margin-bottom: 6px;
+  }
+  .grade-pct {
+    font-size: 34px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1;
+    letter-spacing: -1px;
+  }
+  .grade-of {
+    font-size: 12px;
+    color: var(--muted);
+    font-weight: 500;
+  }
+  .grade-detail {
+    font-size: 11px;
+    color: var(--muted);
+    margin-bottom: 8px;
+    letter-spacing: 0.3px;
+  }
+  .grade-story {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    color: var(--navy);
+    font-weight: 500;
+    line-height: 1.2;
+  }
+  .fs-item {
+    text-align: center;
+  }
+  .fs-num {
+    font-size: 26px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .fs-label {
+    font-size: 11px;
+    color: var(--cerulean);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 6px;
+    font-weight: 700;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 8px;
+    border-top: 1px solid var(--soft-navy);
+  }
+  .footer-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .footer-sub {
+    font-size: 11px;
+    color: var(--muted);
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+
+  .series-nav {
+    margin: 22px 0 6px;
+    padding: 14px 18px;
+    background: var(--soft-navy);
+    border-radius: 12px;
+  }
+  .series-nav-header {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .series-nav-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .series-nav-items a {
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .series-nav-items a:hover {
+    background: var(--cerulean);
+    color: white;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div class="brand">
+      <span class="brand-mark">Newark Collegiate</span>
+      <span class="brand-name">2026 AP Results at a Glance</span>
+    </div>
+    <div class="doc-meta">
+      <strong>Class of 2026 &amp; underclassmen</strong><br>
+      College Board data<br>
+      Prepared July 2026
+    </div>
+  </header>
+
+  <h1>Five years up. Never once down.</h1>
+  <div class="subhead">and this year, we crossed the halfway mark.</div>
+
+  <div class="hero">
+    <div class="hero-number">
+      <div class="hero-label">2026 pass rate</div>
+      <div class="hero-big">53%</div>
+      <div class="hero-subtext">of Collegiate AP students earned a score of 3 or higher on at least one exam.</div>
+      <div class="hero-caveat">up from just 7% in 2022.</div>
+    </div>
+    <div class="chart-card">
+      <div class="chart-title">% of AP students scoring 3+</div>
+      <div class="bars">
+        <div class="bar-col"><span class="bar-pct">7%</span><div class="bar" style="height: 13%;"></div><span class="bar-year">2022</span></div>
+        <div class="bar-col"><span class="bar-pct">14%</span><div class="bar" style="height: 26%;"></div><span class="bar-year">2023</span></div>
+        <div class="bar-col"><span class="bar-pct">32%</span><div class="bar" style="height: 60%;"></div><span class="bar-year">2024</span></div>
+        <div class="bar-col"><span class="bar-pct">41%</span><div class="bar" style="height: 77%;"></div><span class="bar-year">2025</span></div>
+        <div class="bar-col"><span class="bar-pct">53%</span><div class="bar" style="height: 100%;"></div><span class="bar-year">2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">Subjects that showed up</div>
+  <div class="standouts">
+    <div class="standout gold">
+      <div class="standout-pct">100%</div>
+      <div class="standout-subj">AP Seminar</div>
+      <div class="standout-note">mean score 4.18</div>
+    </div>
+    <div class="standout gold">
+      <div class="standout-pct">100%</div>
+      <div class="standout-subj">African American Studies</div>
+      <div class="standout-note">mean score 3.50</div>
+    </div>
+    <div class="standout">
+      <div class="standout-pct">80%</div>
+      <div class="standout-subj">AP Statistics</div>
+      <div class="standout-note">up from 15% last year</div>
+    </div>
+    <div class="standout">
+      <div class="standout-pct">69%</div>
+      <div class="standout-subj">AP Precalculus</div>
+      <div class="standout-note">49 exams taken</div>
+    </div>
+  </div>
+
+  <div class="section-label">Growth stories worth telling</div>
+  <div class="stories">
+    <div class="story">
+      <div class="story-title">AP English Language</div>
+      <div class="story-body">
+        Five straight years of growth. <strong>2% to 60% pass rate</strong> since 2022. Sixty exams taken this year, the largest cohort in the building.
+      </div>
+    </div>
+    <div class="story">
+      <div class="story-title">AP Statistics</div>
+      <div class="story-body">
+        The single biggest one-year jump. <strong>15% to 80% pass rate</strong> from 2025 to 2026. Mean score climbed from 1.62 to 3.10.
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">The pipeline in three grades</div>
+  <div class="grade-strip">
+    <div class="grade-card">
+      <div class="grade-tag">10th grade</div>
+      <div class="grade-headline">
+        <span class="grade-pct">49%</span>
+        <span class="grade-of">pass rate</span>
+      </div>
+      <div class="grade-detail">53 students &middot; 81 exams &middot; mean 2.54</div>
+      <div class="grade-story">Sophomores already testing at senior level.</div>
+    </div>
+    <div class="grade-card featured">
+      <div class="grade-tag">11th grade</div>
+      <div class="grade-headline">
+        <span class="grade-pct">57%</span>
+        <span class="grade-of">pass rate</span>
+      </div>
+      <div class="grade-detail">62 students &middot; 134 exams &middot; mean 2.49</div>
+      <div class="grade-story">Highest pass rate in the building.</div>
+    </div>
+    <div class="grade-card">
+      <div class="grade-tag">12th grade</div>
+      <div class="grade-headline">
+        <span class="grade-pct">52%</span>
+        <span class="grade-of">pass rate</span>
+      </div>
+      <div class="grade-detail">67 students &middot; 116 exams &middot; mean 2.54</div>
+      <div class="grade-story">8 seniors earned 3+ on three or more exams.</div>
+    </div>
+  </div>
+
+  <div class="section-label">Named on the national stage</div>
+  <div class="honors-intro">
+    Three Collegiate juniors were recognized by the <strong>College Board National Recognition Program</strong>, an academic honor for the top-performing 10th and 11th graders in the country. Their names travel with them to college applications.
+  </div>
+  <div class="honors-strip">
+    <div class="honor-card">
+      <div class="honor-badge">NRP 2026</div>
+      <div class="honor-name">Angel Ozonwoye</div>
+      <div class="honor-class">Class of 2027</div>
+      <div class="honor-award">First-Generation Recognition Award</div>
+    </div>
+    <div class="honor-card">
+      <div class="honor-badge">NRP 2026</div>
+      <div class="honor-name">Makai Sanks</div>
+      <div class="honor-class">Class of 2027 &middot; AP Lang 5</div>
+      <div class="honor-award">School Recognition Award</div>
+    </div>
+    <div class="honor-card double">
+      <div class="honor-badge">NRP 2026</div>
+      <div class="honor-name">Asad Drayton</div>
+      <div class="honor-class">Class of 2027</div>
+      <div class="honor-award">First-Generation &amp; School Recognition</div>
+    </div>
+  </div>
+
+  <div class="footer-strip">
+    <div class="fs-item">
+      <div class="fs-num">331</div>
+      <div class="fs-label">exams taken</div>
+    </div>
+    <div class="fs-item">
+      <div class="fs-num">182</div>
+      <div class="fs-label">AP test-takers</div>
+    </div>
+    <div class="fs-item">
+      <div class="fs-num">14</div>
+      <div class="fs-label">subjects offered</div>
+    </div>
+  </div>
+
+  <div class="series-nav">
+    <div class="series-nav-header">In this series</div>
+    <div class="series-nav-items">
+      <a href="Newark_Collegiate_2026_AP_Class_of_2026.html">Class of 2026</a>
+      <a href="Newark_Collegiate_2026_AP_For_Families.html">For families</a>
+      <a href="Newark_Collegiate_2026_AP_Social.html">Social graphic</a>
+      <a href="Newark_Collegiate_2026_AP_State_Comparison.html">vs. NJ + nation</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-tag">Rooted in Excellence. Built on Belonging.</div>
+    <div class="footer-sub">Newark Collegiate &middot; SY27</div>
+  </footer>
+
+</div>
+</body>
+</html>

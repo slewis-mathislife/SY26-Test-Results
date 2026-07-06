@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<title>Newark Collegiate | AP 2026 in State &amp; National Context</title>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --navy: #1B2A5E;
+    --cerulean: #4FBCEC;
+    --cream: #FDF9F0;
+    --ink: #1B2A5E;
+    --muted: #6B7A99;
+    --gold: #DD9933;
+    --soft-navy: #E8ECF5;
+    --soft-blue: #E6F5FC;
+    --soft-cream: #FBF4E4;
+    --green: #A6CE39;
+    --deep-green: #6B8A20;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html, body {
+    font-family: Calibri, "Segoe UI", sans-serif;
+    background: #E8ECF5;
+    color: var(--ink);
+    padding: 24px;
+  }
+  .page {
+    max-width: 850px;
+    margin: 0 auto;
+    background: var(--cream);
+    padding: 40px 44px 32px;
+    border-radius: 18px;
+    box-shadow: 0 12px 40px rgba(27, 42, 94, 0.15);
+    position: relative;
+    overflow: hidden;
+  }
+  .page::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 8px;
+    background: linear-gradient(90deg, var(--navy) 0%, var(--cerulean) 100%);
+  }
+  header {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    border-bottom: 2px solid var(--soft-navy);
+    padding-bottom: 16px;
+    margin-bottom: 20px;
+  }
+  .brand-mark {
+    font-size: 12px;
+    letter-spacing: 3px;
+    color: var(--cerulean);
+    font-weight: 700;
+    text-transform: uppercase;
+  }
+  .brand-name {
+    font-size: 22px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-top: 4px;
+  }
+  .doc-meta {
+    text-align: right;
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.5;
+  }
+  .doc-meta strong { color: var(--navy); font-size: 13px; }
+
+  h1 {
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--navy);
+    line-height: 1.15;
+    letter-spacing: -0.5px;
+  }
+  .subhead {
+    font-family: 'Caveat', cursive;
+    font-size: 24px;
+    color: var(--cerulean);
+    margin-top: 4px;
+    font-weight: 700;
+  }
+
+  .section-label {
+    font-family: 'Caveat', cursive;
+    font-size: 26px;
+    color: var(--navy);
+    font-weight: 700;
+    margin: 20px 0 12px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+  }
+  .section-label::after {
+    content: "";
+    flex: 1;
+    height: 2px;
+    background: var(--soft-navy);
+  }
+
+  /* Big comparison strip */
+  .compare-strip {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 12px;
+    margin-bottom: 16px;
+  }
+  .compare-card {
+    background: white;
+    border-radius: 12px;
+    padding: 18px 20px;
+    border-top: 5px solid var(--soft-navy);
+    box-shadow: 0 2px 8px rgba(27, 42, 94, 0.05);
+  }
+  .compare-card.us { border-top-color: var(--navy); background: var(--navy); color: white; }
+  .compare-card.nj { border-top-color: var(--cerulean); }
+  .compare-card.nation { border-top-color: var(--gold); }
+  .compare-tag {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    font-weight: 700;
+    color: var(--muted);
+    margin-bottom: 6px;
+  }
+  .compare-card.us .compare-tag { color: var(--cerulean); }
+  .compare-pct {
+    font-size: 42px;
+    font-weight: 700;
+    line-height: 1;
+    color: var(--navy);
+    letter-spacing: -1.5px;
+    margin-bottom: 6px;
+  }
+  .compare-card.us .compare-pct { color: white; }
+  .compare-desc {
+    font-size: 12px;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .compare-card.us .compare-desc { color: white; opacity: 0.9; }
+  .compare-year {
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 0.5px;
+  }
+  .compare-card.us .compare-year { color: rgba(255,255,255,0.6); }
+
+  .apples-note {
+    background: var(--soft-cream);
+    border-left: 4px solid var(--gold);
+    border-radius: 8px;
+    padding: 10px 14px;
+    font-size: 12px;
+    line-height: 1.55;
+    color: var(--ink);
+    margin-bottom: 6px;
+  }
+  .apples-note strong { color: var(--navy); }
+
+  /* Local comparison */
+  .local-card {
+    background: white;
+    border-radius: 12px;
+    padding: 20px 24px;
+    border: 1px solid var(--soft-navy);
+    margin-bottom: 4px;
+  }
+  .local-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 4px;
+  }
+  .local-sub {
+    font-size: 12px;
+    color: var(--muted);
+    margin-bottom: 14px;
+  }
+  .local-bars {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+  }
+  .local-row {
+    display: grid;
+    grid-template-columns: 200px 1fr 60px;
+    align-items: center;
+    gap: 12px;
+  }
+  .local-label {
+    font-size: 13px;
+    color: var(--ink);
+    font-weight: 500;
+  }
+  .local-label small { color: var(--muted); font-size: 11px; }
+  .local-track {
+    height: 22px;
+    background: var(--soft-navy);
+    border-radius: 4px;
+    overflow: hidden;
+  }
+  .local-fill {
+    height: 100%;
+    background: linear-gradient(90deg, var(--cerulean), var(--navy));
+    display: flex;
+    align-items: center;
+    padding-left: 8px;
+    color: white;
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.5px;
+  }
+  .local-fill.nc { background: linear-gradient(90deg, var(--cerulean), var(--navy)); }
+  .local-fill.nps { background: var(--muted); }
+  .local-pct {
+    font-size: 14px;
+    font-weight: 700;
+    color: var(--navy);
+    text-align: right;
+  }
+
+  /* Subject comparison */
+  .subject-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .subject-card {
+    background: white;
+    border-radius: 10px;
+    padding: 12px 16px;
+    border-left: 4px solid var(--muted);
+    box-shadow: 0 2px 6px rgba(27, 42, 94, 0.04);
+  }
+  .subject-card.ahead { border-left-color: var(--green); background: linear-gradient(90deg, #F4F9E4 0%, white 30%); }
+  .subject-card.behind { border-left-color: var(--gold); }
+  .subject-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    margin-bottom: 6px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+  .subject-badge {
+    font-family: 'Caveat', cursive;
+    font-size: 18px;
+    font-weight: 700;
+  }
+  .subject-badge.ahead { color: var(--deep-green); }
+  .subject-badge.behind { color: var(--gold); }
+  .subject-numbers {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    padding-top: 8px;
+    border-top: 1px dashed var(--soft-navy);
+  }
+  .subj-us, .subj-nj, .subj-nat {
+    display: flex;
+    flex-direction: column;
+    line-height: 1.25;
+  }
+  .subj-us .num, .subj-nj .num, .subj-nat .num { font-size: 16px; font-weight: 700; }
+  .subj-us .lbl, .subj-nj .lbl, .subj-nat .lbl { font-size: 9px; letter-spacing: 0.5px; text-transform: uppercase; margin-top: 2px; }
+  .subj-us .num { color: var(--navy); }
+  .subj-us .lbl { color: var(--navy); font-weight: 700; }
+  .subj-nj .num { color: var(--navy); }
+  .subj-nj .lbl { color: var(--muted); }
+  .subj-nat .num { color: var(--muted); }
+  .subj-nat .lbl { color: var(--muted); }
+
+  /* Trajectory */
+  .traj-card {
+    background: var(--soft-blue);
+    border-radius: 12px;
+    padding: 18px 22px;
+    border-left: 5px solid var(--cerulean);
+    margin-bottom: 6px;
+  }
+  .traj-title {
+    font-size: 13px;
+    font-weight: 700;
+    color: var(--navy);
+    letter-spacing: 0.5px;
+    text-transform: uppercase;
+    margin-bottom: 6px;
+  }
+  .traj-body {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.55;
+  }
+  .traj-body strong { color: var(--navy); }
+  .traj-caveat {
+    font-family: 'Caveat', cursive;
+    font-size: 20px;
+    color: var(--navy);
+    margin-top: 6px;
+  }
+
+  footer {
+    text-align: center;
+    padding-top: 14px;
+    border-top: 1px solid var(--soft-navy);
+    margin-top: 18px;
+  }
+  .footer-tag {
+    font-family: 'Caveat', cursive;
+    font-size: 22px;
+    color: var(--navy);
+    font-weight: 700;
+  }
+  .footer-sub {
+    font-size: 10px;
+    color: var(--muted);
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    margin-top: 4px;
+  }
+  .sources {
+    font-size: 11px;
+    color: var(--ink);
+    line-height: 1.5;
+    margin-top: 12px;
+    padding-top: 12px;
+    border-top: 1px dashed var(--soft-navy);
+    text-align: left;
+  }
+  .sources-header {
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 8px;
+  }
+  .sources-list {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+  }
+  .source-row {
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--soft-navy);
+  }
+  .source-row:last-child { border-bottom: none; }
+  .source-row a {
+    color: var(--navy);
+    text-decoration: underline;
+    text-decoration-color: var(--cerulean);
+    text-underline-offset: 2px;
+    font-weight: 500;
+    font-size: 12px;
+  }
+  .source-row a:hover { color: var(--cerulean); }
+  .source-use {
+    color: var(--muted);
+    font-size: 10px;
+    letter-spacing: 0.3px;
+  }
+
+  .series-nav {
+    margin: 22px 0 6px;
+    padding: 14px 18px;
+    background: var(--soft-navy);
+    border-radius: 12px;
+  }
+  .series-nav-header {
+    font-size: 10px;
+    letter-spacing: 2.5px;
+    text-transform: uppercase;
+    color: var(--muted);
+    font-weight: 700;
+    margin-bottom: 10px;
+  }
+  .series-nav-items {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+  .series-nav-items a {
+    padding: 6px 14px;
+    background: white;
+    border: 1px solid transparent;
+    border-radius: 20px;
+    font-size: 12px;
+    color: var(--navy);
+    text-decoration: none;
+    font-weight: 500;
+    transition: all 0.15s;
+  }
+  .series-nav-items a:hover {
+    background: var(--cerulean);
+    color: white;
+  }
+
+  @media print {
+    body { background: white; padding: 0; }
+    .page { box-shadow: none; border-radius: 0; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <header>
+    <div>
+      <span class="brand-mark">Newark Collegiate</span>
+      <div class="brand-name">2026 AP Results in Context</div>
+    </div>
+    <div class="doc-meta">
+      <strong>How we stack up</strong><br>
+      vs. New Jersey &amp; the nation<br>
+      Prepared July 2026
+    </div>
+  </header>
+
+  <h1>We're playing in a top-three-state ballpark.</h1>
+  <div class="subhead">and climbing toward the statewide average.</div>
+
+  <div class="section-label">The big picture</div>
+  <div class="compare-strip">
+    <div class="compare-card us">
+      <div class="compare-tag">Newark Collegiate</div>
+      <div class="compare-pct">53%</div>
+      <div class="compare-desc">of our AP students earned a 3+ on at least one exam.</div>
+      <div class="compare-year">2026 &middot; student-level</div>
+    </div>
+    <div class="compare-card nj">
+      <div class="compare-tag">New Jersey</div>
+      <div class="compare-pct">33%</div>
+      <div class="compare-desc">of NJ public high school graduates scored 3+ on at least one AP. State ranks 3rd nationally.</div>
+      <div class="compare-year">Class of 2025 &middot; graduate-level</div>
+    </div>
+    <div class="compare-card nation">
+      <div class="compare-tag">United States</div>
+      <div class="compare-pct">25%</div>
+      <div class="compare-desc">of U.S. public high school graduates scored 3+ on at least one AP.</div>
+      <div class="compare-year">Class of 2025 &middot; graduate-level</div>
+    </div>
+  </div>
+  <div class="apples-note">
+    <strong>A note on the numbers:</strong> The three figures above use slightly different denominators. Ours is percentage of AP test-takers. The state and national are percentage of <em>all</em> public high school graduates: the College Board's official ranking metric, which asks what share of every graduating senior earned at least one qualifying AP score at some point during their four years. Most seniors nationwide never sit for an AP exam at all, which is why the state and national numbers are lower than a pass rate. The apples-to-apples comparison lives in the next section.
+  </div>
+
+  <div class="section-label">In our own backyard</div>
+  <div class="local-card">
+    <div class="local-title">Same city, different districts, same metric</div>
+    <div class="local-sub">Percentage of AP test-takers who scored 3+ on at least one exam</div>
+    <div class="local-bars">
+      <div class="local-row">
+        <div class="local-label"><strong>Newark Collegiate</strong> <small>SY26</small></div>
+        <div class="local-track"><div class="local-fill nc" style="width: 100%;">Newark Collegiate 2026</div></div>
+        <div class="local-pct">53%</div>
+      </div>
+      <div class="local-row">
+        <div class="local-label"><strong>Newark Public Schools</strong> <small>district-wide, SY25</small></div>
+        <div class="local-track"><div class="local-fill nps" style="width: 96%;">Newark Public Schools 2025</div></div>
+        <div class="local-pct">51%</div>
+      </div>
+      <div class="local-row">
+        <div class="local-label"><strong>NJ statewide test-takers</strong> <small>grades 11-12, SY25</small></div>
+        <div class="local-track"><div class="local-fill" style="width: 100%; background: linear-gradient(90deg, #DD9933, #B87A1F);">NJ statewide 2025</div></div>
+        <div class="local-pct">78%</div>
+      </div>
+    </div>
+  </div>
+  <div class="apples-note" style="border-left-color: var(--cerulean); background: var(--soft-blue);">
+    <strong>The honest read:</strong> It's a bit early to say cleanly (our data is 2026, theirs is 2025), but our current scores are outperforming Newark Public Schools 2025 and climbing toward the statewide average. Newark Public is a neighboring district in the same city; as a charter, we sit outside their district, so this is a neighbor comparison, not an internal one. Nevertheless, it's a meaningful data point.
+  </div>
+
+  <div class="section-label">Subject by subject vs. New Jersey and the nation</div>
+  <div class="subject-grid">
+    <div class="subject-card ahead">
+      <div class="subject-name">AP Seminar <span class="subject-badge ahead">leading</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">100%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">91%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">86%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+    <div class="subject-card ahead">
+      <div class="subject-name">African American Studies <span class="subject-badge ahead">leading</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">100%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">80%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">77%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+    <div class="subject-card ahead">
+      <div class="subject-name">AP Statistics <span class="subject-badge ahead">leading</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">80%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">71%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">64%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+    <div class="subject-card behind">
+      <div class="subject-name">AP Precalculus <span class="subject-badge behind">climbing</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">69%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">86%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">82%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+    <div class="subject-card behind">
+      <div class="subject-name">AP English Language <span class="subject-badge behind">climbing</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">60%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">86%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">75%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+    <div class="subject-card behind">
+      <div class="subject-name">AP Calculus AB <span class="subject-badge behind">climbing</span></div>
+      <div class="subject-numbers">
+        <div class="subj-us"><span class="num">56%</span><span class="lbl">Newark Collegiate</span></div>
+        <div class="subj-nj"><span class="num">72%</span><span class="lbl">NJ 2026</span></div>
+        <div class="subj-nat"><span class="num">66%</span><span class="lbl">National 2026</span></div>
+      </div>
+    </div>
+  </div>
+
+  <div class="section-label">The trajectory nobody else has</div>
+  <div class="traj-card">
+    <div class="traj-title">Newark Collegiate 5-year growth</div>
+    <div class="traj-body">
+      Our schoolwide AP pass rate went from <strong>7% in 2022 to 53% in 2026</strong>. That's <strong>+46 percentage points in five years</strong>. Over that same span, New Jersey's statewide graduate 3+ rate moved a few points, and the national number moved about four. The state is a steady tide. We are a wave.
+    </div>
+    <div class="traj-caveat">no other benchmark on this page moved like ours.</div>
+  </div>
+
+  <div class="series-nav">
+    <div class="series-nav-header">In this series</div>
+    <div class="series-nav-items">
+      <a href="index.html">Full 2026 report</a>
+      <a href="Newark_Collegiate_2026_AP_Class_of_2026.html">Class of 2026</a>
+      <a href="Newark_Collegiate_2026_AP_For_Families.html">For families</a>
+      <a href="Newark_Collegiate_2026_AP_Social.html">Social graphic</a>
+    </div>
+  </div>
+
+  <footer>
+    <div class="footer-tag">Rooted in Excellence. Built on Belonging.</div>
+    <div class="footer-sub">Newark Collegiate &middot; SY27</div>
+    <div class="sources">
+      <div class="sources-header">Sources</div>
+      <div class="sources-list">
+        <div class="source-row">
+          <a href="https://reports.collegeboard.org/ap-program-results/class-of-2025" target="_blank" rel="noopener">College Board AP Program Results, Class of 2025</a>
+          <span class="source-use">NJ 33% graduate rate, NJ rank of 3rd, U.S. 25% national average</span>
+        </div>
+        <div class="source-row">
+          <a href="https://www.nps.k12.nj.us/press-releases/nps-students-achieving-success-on-advanced-placement-exams/" target="_blank" rel="noopener">Newark Public Schools press release, December 2025</a>
+          <span class="source-use">NPS district 51% test-taker pass rate</span>
+        </div>
+        <div class="source-row">
+          <a href="https://wrat.com/2026/04/30/new-jersey-lands-third-place-in-national-school-system-rankings-shows-strength-in-ap-testing/" target="_blank" rel="noopener">95.9 The RAT summary of College Board state data</a>
+          <span class="source-use">NJ grades 11 and 12 test-taker 77.7% pass rate for 2024-25</span>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+</div>
+</body>
+</html>
